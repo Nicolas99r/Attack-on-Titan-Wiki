@@ -3,8 +3,37 @@ import { Ionicons } from '@expo/vector-icons'
 import { Tabs } from 'expo-router'
 
 const TabsLayout = () => {
+
+  const bgColor = '#0C0C0C'
+
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        /* headerShown: false */
+        headerTitle: 'Attack on Titan Wiki',
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontSize: 28
+        },
+        headerRight: () => <Ionicons name='search-outline' size={28} color='white' style={{marginRight: 10}}/>,
+        headerStyle: {
+          backgroundColor: 'black'
+        },
+        tabBarStyle: {
+          backgroundColor: bgColor,
+          borderTopWidth: 0, // Elimina la línea blanca
+          elevation: 0, // Quita sombras en Android
+          height: 60
+        },
+        tabBarItemStyle: {
+          paddingVertical: 5
+        },
+        tabBarLabelStyle: {
+          paddingVertical: 5
+        },
+        tabBarActiveTintColor: 'white',
+      }}
+    >
       <Tabs.Screen
         name='home'
         options={{

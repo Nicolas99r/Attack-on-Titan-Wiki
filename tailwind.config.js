@@ -9,6 +9,21 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+
+      colors: {
+        gray1: '#212121',
+        gray2: '#2C2C2C',
+        gray3: '#818181',
+        gray4: '#9A9A9A',
+        white1: 'rgba(1,1,1,0.8)',
+        white2: 'rgba(1,1,1,0.3)',
+        white3: 'rgba(1,1,1,0.15)',
+        white4: 'rgba(1,1,1,0.1)',
+        black1: 'rgba(0,0,0,0.8)',
+        netflixRed: '#E50913',
+        netflixGreen: '#45D468'
+      },
+
       fontFamily: {
         'inter-bold': ['Inter_28pt-Bold', 'sans-serif'],
         'inter-regular': ['Inter_28pt-Regular', 'sans-serif'],

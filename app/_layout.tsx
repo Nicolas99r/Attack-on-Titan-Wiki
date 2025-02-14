@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 import React, { useEffect } from 'react'
 import "../global.css";
 import {
