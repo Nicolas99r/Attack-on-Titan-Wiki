@@ -1,39 +1,53 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { View, Text, Pressable, StatusBar } from 'react-native'
+import React, { useEffect } from 'react'
+import "../global.css";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { characterActions } from '@/core/actions/characterActions';
+import { SplashScreen, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+// Create a client
+const queryClient = new QueryClient()
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+const RootLayout = () => {
+
+  characterActions();
+  const [ fontsLoaded, error ] = useFonts({
+    'Inter_28pt-Bold': require('../assets/fonts/Inter_28pt-Bold.ttf'),
+    'Inter_28pt-Regular': require('../assets/fonts/Inter_28pt-Regular.ttf'),
+    'Inter_28pt-SemiBold': require('../assets/fonts/Inter_28pt-SemiBold.ttf')
   });
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+    if(error) throw error;
 
-  if (!loaded) {
-    return null;
-  }
+    if(fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error])
+  
+  if(!fontsLoaded && !error) return null;
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
+    <QueryClientProvider client={queryClient}>
+      <StatusBar barStyle="light-content" backgroundColor="black" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        {/* Pantalla inicial */}
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        {/* Pantalla de elección de división */}
+        <Stack.Screen name="division/index" options={{ headerShown: false }} />
+        {/* Tabs */}
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+    </QueryClientProvider>
+  )
 }
+
+export default RootLayout
