@@ -1,8 +1,7 @@
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import React from 'react'
 import { useCharacters } from '@/presentation/hooks/useCharacters'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Ionicons } from '@expo/vector-icons'
 import MainCard from '@/presentation/components/cards/MainCard'
 
 const HomeScreen = () => {

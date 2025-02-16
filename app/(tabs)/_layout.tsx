@@ -12,9 +12,6 @@ const TabsLayout = () => {
         /* headerShown: false */
         headerTitle: 'Attack on Titan Wiki',
         headerTintColor: 'white',
-        headerTitleStyle: {
-          fontSize: 28
-        },
         headerRight: () => <Ionicons name='search-outline' size={28} color='white' style={{marginRight: 10}}/>,
         headerStyle: {
           backgroundColor: 'black'
@@ -23,14 +20,14 @@ const TabsLayout = () => {
           backgroundColor: bgColor,
           borderTopWidth: 0, // Elimina la línea blanca
           elevation: 0, // Quita sombras en Android
-          height: 60
+          height: 55
         },
-        tabBarItemStyle: {
+        /* tabBarItemStyle: {
           paddingVertical: 5
         },
         tabBarLabelStyle: {
           paddingVertical: 5
-        },
+        }, */
         tabBarActiveTintColor: 'white',
       }}
     >
@@ -38,21 +35,21 @@ const TabsLayout = () => {
         name='home'
         options={{
           title: 'Home',
-          tabBarIcon: ({color}) => <Ionicons size={28} name='home' color={color}/>
+          tabBarIcon: ({color}) => <Ionicons size={24} name='home' color={color}/>
         }}
       />
       <Tabs.Screen
         name='episodes'
         options={{
           title: 'Episodes',
-          tabBarIcon: ({color}) => <Ionicons size={28} name='images-outline' color={color}/>
+          tabBarIcon: ({color}) => <Ionicons size={24} name='images-outline' color={color}/>
         }}
       />
       <Tabs.Screen
         name='mydivision'
         options={{
           title: 'My Division',
-          tabBarIcon: ({color}) => <Ionicons size={28} name='sad-outline' color={color}/>
+          tabBarIcon: ({color}) => <Ionicons size={24} name='sad-outline' color={color}/>
         }}
       />
     </Tabs>
