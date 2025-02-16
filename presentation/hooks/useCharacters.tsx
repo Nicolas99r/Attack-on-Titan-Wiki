@@ -1,4 +1,5 @@
 import { characterActions } from "@/core/actions/characterActions"
+import { titanActions } from "@/core/actions/titanActions"
 import { useQuery } from "@tanstack/react-query"
 
 export const useCharacters = () => {
@@ -8,7 +9,14 @@ export const useCharacters = () => {
         staleTime: 1000 * 60 * 60 * 24,
     })
 
+    const allTitansQuery = useQuery({ 
+        queryKey: ['titans', 'allTitans'],
+        queryFn: titanActions,
+        staleTime: 1000 * 60 * 60 * 24,
+    })
+
     return {
         allCharactersQuery,
+        allTitansQuery
     }
 }

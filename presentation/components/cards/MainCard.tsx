@@ -6,7 +6,7 @@ import logo from '../../../assets/images/home/Attack-on-Titan-Emblem1.png'
 
 const MainCard = () => {
   return (
-    <View className="h-[60%] w-full justify-center items-center">
+    <View className="h-[400px] w-full justify-center items-center">
       {/* Contenedor externo con bordes redondeados */}
       <View
         className="h-full w-[80%] rounded-2xl overflow-hidden relative border-[1px] border-white1"
