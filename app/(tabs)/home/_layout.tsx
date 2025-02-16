@@ -12,6 +12,8 @@ const StackLayout = () => {
             name='home/index'
             options={{
                 title: 'Home',
+                /* headerBlurEffect: 'regular',
+                headerTransparent: true */
             }}
         />
     </Stack>

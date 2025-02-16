@@ -14,8 +14,9 @@ const TabsLayout = () => {
         headerTintColor: 'white',
         headerRight: () => <Ionicons name='search-outline' size={28} color='white' style={{marginRight: 10}}/>,
         headerStyle: {
-          backgroundColor: 'black'
+          backgroundColor: 'rgba(0,0,0,0.8)'
         },
+        headerTransparent: true,
         tabBarStyle: {
           backgroundColor: bgColor,
           borderTopWidth: 0, // Elimina la línea blanca

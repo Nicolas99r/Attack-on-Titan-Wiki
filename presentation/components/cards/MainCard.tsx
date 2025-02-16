@@ -12,7 +12,6 @@ const MainCard = () => {
         className="h-full w-[80%] rounded-2xl overflow-hidden relative border-[1px] border-white1"
         style={{ backgroundColor: '#000', elevation: 10 }} // Fondo de respaldo en caso de que la imagen no cubra todo
       >
-        {/* Imagen de fondo */}
         <Image
           source={erenFree}
           className="absolute top-0 left-0 right-0 bottom-0 w-full h-full"
