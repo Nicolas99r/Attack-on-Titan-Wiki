@@ -45,7 +45,7 @@ const TitanCard = ({ titans }: Props) => {
         renderItem={({ item }) => (
           <Pressable
             className='active:opacity-35'
-            onPress={() => router.push({pathname: `/home/titans/${item.id}`})}
+            onPress={() => router.push(`/home/titans/${item.id}`)}
           >
             <Image
                 source={validImages[item.id] ? { uri: item.img } : FallbackImage}
