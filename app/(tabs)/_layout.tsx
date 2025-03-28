@@ -8,9 +8,10 @@ const TabsLayout = () => {
 
   return (
     <Tabs
-      screenOptions={{
+      screenOptions= {({route}) => ({
         /* headerShown: false */
-        headerTitle: 'Attack on Titan Wiki',
+        headerTitle: route.name === "home" || route.name === "episodes" || route.name === "mydivision" ? 'Attack on Titan Wiki' : '',
+        headerShown: route.name !== "titans",
         headerTintColor: 'white',
         headerRight: () => <Ionicons name='search-outline' size={28} color='white' style={{marginRight: 10}}/>,
         headerStyle: {
@@ -30,7 +31,7 @@ const TabsLayout = () => {
           paddingVertical: 5
         }, */
         tabBarActiveTintColor: 'white',
-      }}
+      })}
     >
       <Tabs.Screen
         name='home'
